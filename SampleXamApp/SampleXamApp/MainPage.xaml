@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:SampleXamApp"
+             x:Class="SampleXamApp.MainPage" 
+             Title="Hello Xamarin.Forms!">
+
+    <StackLayout Margin="20">
+        <Entry x:Name="messageEntry" Placeholder="Type anything here!"/>
+        <Button x:Name="sendButton" Text="Send Message" TextColor="White" Clicked="SendButton_Clicked">
+            <Button.BackgroundColor>
+                <OnPlatform x:TypeArguments="Color">
+                    <On Platform="iOS" Value="Crimson"/>
+                    <On Platform="Android" Value="Black"/>
+                </OnPlatform>
+            </Button.BackgroundColor>
+        </Button>
+        <ListView x:Name="listView" Margin="0,20">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <Label Text="{Binding}" TextColor="Black" FontSize="20"/>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </StackLayout>
+
+</ContentPage>
